@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
         // Game not started
         if (gameState == GameState.Idle)
         {
-            if (Input.GetKeyDown("up") || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
             {
                 // Change game state
                 gameState = GameState.Playing;
