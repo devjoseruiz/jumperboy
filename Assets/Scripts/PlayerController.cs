@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject game;
     private Animator playerAnimator;
 
     // Start is called before the first frame update
@@ -15,7 +16,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+        if (game.GetComponent<GameController>().gameState == GameController.GameState.Playing &&
+            (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0)))
         {
             UpdateState("PlayerJump");
         }
@@ -27,6 +29,16 @@ public class PlayerController : MonoBehaviour
         if (state != null)
         {
             playerAnimator.Play(state);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log(collider.gameObject.tag);
+        if (collider.gameObject.tag == "Enemy")
+        {
+            game.GetComponent<GameController>().gameState = GameController.GameState.GameOver;
+            UpdateState("PlayerDie");
         }
     }
 }
