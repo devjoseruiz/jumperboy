@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject game;
     public AudioClip jumpClip;
     public AudioClip dieClip;
+    public AudioClip pointClip;
     private Animator playerAnimator;
     private AudioSource audioPlayer;
     private float startY;
@@ -42,13 +43,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (game.GetComponent<GameController>().gameState != GameController.GameState.GameOver &&
-            collider.gameObject.tag == "Enemy")
+        if (game.GetComponent<GameController>().gameState != GameController.GameState.GameOver)
         {
-            game.GetComponent<GameController>().gameState = GameController.GameState.GameOver;
-            UpdateState("PlayerDie");
-            audioPlayer.clip = dieClip;
-            audioPlayer.Play();
+            if (collider.gameObject.tag == "Enemy")
+            {
+                game.GetComponent<GameController>().gameState = GameController.GameState.GameOver;
+                UpdateState("PlayerDie");
+                audioPlayer.clip = dieClip;
+                audioPlayer.Play();
+            }
+            else if (collider.gameObject.tag == "Point")
+            {
+                game.SendMessage("IncreaseScore");
+                audioPlayer.clip = pointClip;
+                audioPlayer.Play();
+            }
         }
     }
 
