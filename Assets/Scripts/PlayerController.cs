@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.gameObject.tag);
         if (game.GetComponent<GameController>().gameState != GameController.GameState.GameOver &&
             collider.gameObject.tag == "Enemy")
         {

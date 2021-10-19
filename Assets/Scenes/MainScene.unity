@@ -551,6 +551,8 @@ MonoBehaviour:
   gameState: 0
   player: {fileID: 1442112663}
   enemyGenerator: {fileID: 1911062294}
+  scaleTime: 10
+  scaleTimeIncrement: 0.1
 --- !u!82 &970518543
 AudioSource:
   m_ObjectHideFlags: 0

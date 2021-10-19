@@ -17,11 +17,15 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject enemyGenerator;
 
+    public float scaleTime = 10.0f;
+    public float scaleTimeIncrement = 0.10f;
+
     private AudioSource musicPlayer;
 
     void Start()
     {
         musicPlayer = GetComponent<AudioSource>();
+        InvokeRepeating("GameDifficultyIncrement", scaleTime, scaleTime);
     }
 
     // Update is called once per frame
@@ -50,6 +54,8 @@ public class GameController : MonoBehaviour
             float finalSpeed = parallaxSpeed * Time.deltaTime;
             background.uvRect = new Rect(background.uvRect.x + finalSpeed, 0f, 1f, 1f);
             platform.uvRect = new Rect(platform.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
+            // Increment game difficulty
+            
         }
 
         // Game over
@@ -64,8 +70,20 @@ public class GameController : MonoBehaviour
         {
             if (keyDown)
             {
+                ResetGameDifficulty();
                 SceneManager.LoadScene("MainScene");
             }
         }
+    }
+
+    void GameDifficultyIncrement()
+    {
+        Time.timeScale += scaleTimeIncrement;
+    }
+
+    void ResetGameDifficulty()
+    {
+        CancelInvoke("GameDifficultyIncrement");
+        Time.timeScale = 1.0f;
     }
 }
