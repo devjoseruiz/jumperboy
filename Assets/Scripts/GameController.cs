@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameState gameState = GameState.Idle;
 
     public GameObject player;
+    public GameObject enemyGenerator;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour
                 uiIdle.SetActive(false);
                 // Change player animation
                 player.SendMessage("UpdateState", "PlayerRun");
+                enemyGenerator.SendMessage("StartGenerator");
             }
         }
 
