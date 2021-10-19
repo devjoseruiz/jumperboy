@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyGeneratorController : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float generatorTimer = 1.75f;
+    public float generatorTimer = 7.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class EnemyGeneratorController : MonoBehaviour
 
     public void StartGenerator()
     {
-        InvokeRepeating("CreateEnemy", 0f, generatorTimer);
+        InvokeRepeating("CreateEnemy", 0.0f, generatorTimer);
     }
 
     public void StopGenerator()

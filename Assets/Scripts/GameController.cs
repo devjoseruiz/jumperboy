@@ -17,6 +17,13 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject enemyGenerator;
 
+    private AudioSource musicPlayer;
+
+    void Start()
+    {
+        musicPlayer = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +40,7 @@ public class GameController : MonoBehaviour
                 // Change player animation
                 player.SendMessage("UpdateState", "PlayerRun");
                 enemyGenerator.SendMessage("StartGenerator");
+                musicPlayer.Play();
             }
         }
 
@@ -48,6 +56,7 @@ public class GameController : MonoBehaviour
         else if (gameState == GameState.GameOver)
         {
             enemyGenerator.SendMessage("StopGenerator");
+            musicPlayer.Stop();
         }
 
         // Ready for restart

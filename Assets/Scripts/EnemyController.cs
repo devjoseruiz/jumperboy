@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float velocity = 2f;
+    public float velocity = 5f;
     private Rigidbody2D rb2d;
 
     // Start is called before the first frame update
