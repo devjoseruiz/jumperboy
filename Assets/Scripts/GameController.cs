@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameController : MonoBehaviour
     public RawImage platform;
     public GameObject uiIdle;
 
-    public enum GameState {Idle, Playing, GameOver};
+    public enum GameState {Idle, Playing, GameOver, RestartReady};
     public GameState gameState = GameState.Idle;
 
     public GameObject player;
@@ -19,10 +20,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool keyDown = Input.GetKeyDown("space") || Input.GetMouseButtonDown(0);
         // Game not started
         if (gameState == GameState.Idle)
         {
-            if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+            if (keyDown)
             {
                 // Change game state
                 gameState = GameState.Playing;
@@ -43,9 +45,18 @@ public class GameController : MonoBehaviour
         }
 
         // Game over
-        else
+        else if (gameState == GameState.GameOver)
         {
             enemyGenerator.SendMessage("StopGenerator");
+        }
+
+        // Ready for restart
+        else
+        {
+            if (keyDown)
+            {
+                SceneManager.LoadScene("MainScene");
+            }
         }
     }
 }

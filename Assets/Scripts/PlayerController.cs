@@ -41,4 +41,9 @@ public class PlayerController : MonoBehaviour
             UpdateState("PlayerDie");
         }
     }
+
+    private void GameRestartReady()
+    {
+        game.GetComponent<GameController>().gameState = GameController.GameState.RestartReady;
+    }
 }
