@@ -795,8 +795,8 @@ GameObject:
   - component: {fileID: 1442112665}
   - component: {fileID: 1442112667}
   - component: {fileID: 1442112666}
-  - component: {fileID: 1442112668}
   - component: {fileID: 1442112669}
+  - component: {fileID: 1442112668}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -901,8 +901,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1442112668
-BoxCollider2D:
+--- !u!70 &1442112668
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -914,19 +914,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0018620491, y: 0.62562656}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.83051205, y: 1.2513533}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.042176723, y: 0.62602603}
+  m_Size: {x: 0.74666977, y: 1.2412593}
+  m_Direction: 0
 --- !u!82 &1442112669
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1111,7 +1101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3293493554923941199, guid: 758b7237b6b4aad41abd44df89a4903f,
     type: 3}
-  generatorTimer: 1.75
 --- !u!4 &1911062296
 Transform:
   m_ObjectHideFlags: 0

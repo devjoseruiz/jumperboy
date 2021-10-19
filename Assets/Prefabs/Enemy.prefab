@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3293493554923941194}
   - component: {fileID: 3293493554923941193}
   - component: {fileID: 3293493554923941192}
-  - component: {fileID: 3046999046788993104}
+  - component: {fileID: 5203950105903998904}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 2
---- !u!61 &3046999046788993104
-BoxCollider2D:
+--- !u!60 &5203950105903998904
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020319223, y: 0.41857672}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -111,9 +111,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6627004, y: 0.8374462}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.8381765}
+      - {x: -0.33352256, y: 0.5541594}
+      - {x: -0.33115077, y: -0.00089502335}
+      - {x: 0.33075047, y: 0.0018036366}
+      - {x: 0.33469915, y: 0.5541322}
 --- !u!1 &3293493555039794032
 GameObject:
   m_ObjectHideFlags: 0
