@@ -1,6 +1,11 @@
-﻿# Jumper Boy
+# Jumper Boy
 
 An infinity runner like game made with Unity
+
+## Binaries
+
+* [Windows release](https://www.mediafire.com/file/kwjs6wmy3lt7nef/JumperBoy_r.0.1.0_Windows.zip/file)
+* [Linux release](https://www.mediafire.com/file/sn6qle6lcm0jyei/JumperBoy_r.0.1.0_Linux.zip/file)
 
 ## Dependencies
 
